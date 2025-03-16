@@ -1,34 +1,7 @@
 "use client";
 import { signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import axios, { AxiosError } from "axios";
-import { error } from "console";
+
 export default function SignIn() {
-  const router = useRouter();
-  const [loading, setLoading] = useState(false);
-
-  async function handleClick() {
-    try {
-      setLoading(true);
-
-      try {
-        const response = await axios.get(
-          "/api/aurinko/authUrl?serviceType=Google"
-        );
-      } catch (error) {
-        console.log(
-          "error inn dashboard while fetching axios get auth url",
-          error
-        );
-      }
-    } catch (error) {
-      console.error("Failed to get Aurinko URL:", error);
-    } finally {
-      setLoading(false);
-    }
-  }
-
   return (
     <div>
       <div>Hello succesfully authenticatd the email through code</div>

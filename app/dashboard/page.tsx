@@ -1,12 +1,11 @@
 "use client";
 
 import { signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import axios from "axios";
 
 export default function SignIn() {
-  const router = useRouter();
+
   const [loading, setLoading] = useState(false);
 
   async function handleClick() {

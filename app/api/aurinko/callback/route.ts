@@ -23,7 +23,7 @@ export async function GET(req: NextRequest) {
 
   try {
     // Pass the code from the URL to your getToken endpoint
-    const tokenResponse = await axios.post(
+    await axios.post(
       `${process.env.NEXT_PUBLIC_URL}/api/aurinko/getToken`,
       { code },
       {
@@ -35,7 +35,6 @@ export async function GET(req: NextRequest) {
       }
     );
 
-    // Redirect to a success page
     return NextResponse.redirect(new URL("/email", req.url));
   } catch (error) {
     console.error("Error getting token:", error);

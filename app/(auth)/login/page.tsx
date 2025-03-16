@@ -1,18 +1,16 @@
 // app/login/page.js
 "use client";
-
+import React from "react";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [rememberMe, setRememberMe] = useState(false);
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await signIn("credentials", {
       email,
@@ -226,7 +224,7 @@ export default function LoginPage() {
 
         {/* Sign Up Link */}
         <div className="text-sm text-center text-gray-600">
-          <span>Don't have an account?</span>{" "}
+          <span>{"Don't have an account?"}</span>{" "}
           <Link
             href="/register"
             className="font-medium text-indigo-600 hover:text-indigo-500"

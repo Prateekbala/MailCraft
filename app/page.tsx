@@ -1,6 +1,4 @@
 "use client";
-import { signIn } from "@/auth";
-import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 export default function SignIn() {
   const router = useRouter();
